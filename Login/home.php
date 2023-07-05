@@ -39,13 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (password_verify($password, $row['Password'])) {
             // Password is correct, user is logged in
             session_start();
-            $_SESSION['username'] = $username;
-            header("Location: main.php"); // Redirect to the welcome page
+            $_SESSION['Username'] = $username;
+            header("Location: ../main.php"); // Redirect to the welcome page
             exit();
         }
     }
 
-    $loginError = "Invalid username or password";
+    echo $loginError = "Invalid username or password";
+    header("refresh:5; url=/Login/home.html");
 }
 
 // Close the statement and the database connection

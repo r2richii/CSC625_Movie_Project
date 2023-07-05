@@ -37,6 +37,6 @@ if ($stmt === false) {
 sqlsrv_close($conn);
 
 // Redirect to login page after 10 seconds
-header("refresh:2; url=/Login/home.html");
+header("refresh:5; url=/Login/home.html");
 exit();
 ?>
