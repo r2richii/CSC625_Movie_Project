@@ -21,22 +21,24 @@
     session_start();
     require($_SERVER['DOCUMENT_ROOT'].'/movie_project/mssql_connection.php');
 
+    if(isset($_GET['header_actor_id'])){ $header_actor_id = $_GET['header_actor_id'];}
+
     ######################################################################################################################################################
     // SWITCH TO DETERMINE MODE
+    print('<table>');
+    print('<thead>');
+    print('<th>ACTOR ID</th>');
+    print('<th>ACTOR NAME</th>');
+    print('<th>ACTOR AWARD ID</th>');
+    print('</thead>');
+    print('<tbody>');
+
     switch ($_GET['mode']) {
         
         case 'select':
             $sql = "SELECT ACTOR_ID, ACTOR_NAME, ACTOR_AWARD_ID FROM ACTOR";
 
             $sql_query = sqlsrv_query($MSSQL_CONNECTION, $sql);
-
-            print('<table>');
-            print('<thead>');
-            print('<th>ACTOR ID</th>');
-            print('<th>ACTOR NAME</th>');
-            print('<th>ACTOR AWARD ID</th>');
-            print('</thead>');
-            print('<tbody>');
 
             while($row = sqlsrv_fetch_array($sql_query, SQLSRV_FETCH_ASSOC))
             {
@@ -48,12 +50,41 @@
             }
         
             print('</tbody>');
-
+            sqlsrv_free_stmt($sql_query);
+            sqlsrv_close($MSSQL_CONNECTION);
             break;
+
+        case 'single_select':
+
+            $sql_results = array();
+                global $MSSQL_CONNECTION;
+
+                $sql = "SELECT ACTOR_ID, ACTOR_NAME, ACTOR_AWARD_ID
+                    FROM ACTOR
+                    WHERE ACTOR_ID = ".$header_actor_id;
+
+                $sql_query = sqlsrv_query($MSSQL_CONNECTION, $sql);
+                
+                while($row = sqlsrv_fetch_array($sql_query, SQLSRV_FETCH_ASSOC))
+                {
+                    print('<tr>');
+                    print('<td>' . $row['ACTOR_ID'] . '</td>');
+                    print('<td>' . $row['ACTOR_NAME'] . '</td>');
+                    print('<td>' . $row['ACTOR_AWARD_ID'] . '</td>');
+                    print('</tr>');
+                }
+
+                sqlsrv_free_stmt($sql_query);
+                sqlsrv_close($MSSQL_CONNECTION);
+                break;
+
     }
 
-    sqlsrv_free_stmt($sql_query);
-    sqlsrv_close($MSSQL_CONNECTION);
+   
+
+        
+    
+
     ?>
     <img src="<?php echo 'data:image/png;base64,' . base64_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/movie_project/img/lsus-logo.png')); ?>"
         class="logo-img" height="150">
