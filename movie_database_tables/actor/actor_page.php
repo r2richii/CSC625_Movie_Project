@@ -1,7 +1,7 @@
 <style>
     <?php require($_SERVER['DOCUMENT_ROOT'].'/movie_project/css/stylesheet.css'); ?>
 </style>
-<?php require($_SERVER['DOCUMENT_ROOT'] . '/movie_project/movie_database_tables/actor/actor_processor.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/movie_project/movie_database_tables/actor/actor_sql_processor.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,6 +34,10 @@
 
             <div class="col-sm-3 d-grid gap-3 p-4 height">
                 <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_buttons.php'); ?>
+            </div>
+
+            <div class="col-sm-7 rcorner" id="index_div">
+                <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_input_boxes.php'); ?>
             </div>
 
         </div>
