@@ -5,7 +5,7 @@
 // #########################################################################
 $server = "127.0.0.1";
 $username = "sa";
-$password = "LSUSisthepassword2023";
+$password = "CSC625databaseproject";
 $dbName = "AWARD_WINNING_MOVIES";
 
 $connectionOptions = [
