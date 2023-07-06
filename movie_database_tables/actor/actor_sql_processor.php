@@ -18,7 +18,6 @@
 
     if(isset($mode))
     {
-
         switch($mode)
         {
             case 'insert':
@@ -64,6 +63,24 @@
                 sqlsrv_close($MSSQL_CONNECTION);
                 break;
 
+            case 'update':
+                global $MSSQL_CONNECTION;
+
+                $sql = "UPDATE ACTOR SET ACTOR_NAME = ?, ACTOR_AWARD_ID = ? WHERE ACTOR_ID = ?";
+                
+                // Prepare sql
+                $stmt = sqlsrv_prepare($MSSQL_CONNECTION, $sql, array(&$actor_name, &$actor_award_id, &$actor_id));
+
+                // Execute sql
+                if(sqlsrv_execute($stmt) === false)
+                {
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                // Clean up resources
+                sqlsrv_free_stmt($stmt);
+                sqlsrv_close($MSSQL_CONNECTION);
+                break;
         }
     }
     

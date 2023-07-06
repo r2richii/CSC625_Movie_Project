@@ -36,6 +36,17 @@ $(document).ready(function (){
                     + '&header_actor_award_id='+header_actor_award_id);
         actorClearAll();
     });
+
+    // Update actor
+    $('#update_actor').on('click', function(event) {
+        url_end = '?mode=update';
+        let inputActorID = $('#input_actor_id').val();
+        let inputActorName = $('#input_actor_name').val();
+        let inputActorAwardID = $('#input_actor_award_id').val();
+
+        executeActorSQL('POST','update',inputActorID,inputActorName,inputActorAwardID,url_end);
+        actorClearAll();
+    });
     
 });
 
@@ -46,7 +57,6 @@ $(document).ready(function (){
             // #######################################################################
             // VARIABLES FOR INSERTING INTO DATABASE
             event.stopImmediatePropagation();
-            event.preventDefault();
     
             $.ajax({
                 crossOrigin: true,
