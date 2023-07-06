@@ -19,7 +19,7 @@
 
     <?php
     // THIS PAGE ONLY FOR DISPLAYING SELECT STATEMENTS
-    
+
     session_start();
     require($_SERVER['DOCUMENT_ROOT'].'/movie_project/mssql_connection.php');
 
@@ -81,11 +81,6 @@
                 break;
 
     }
-
-   
-
-        
-    
 
     ?>
     <img src="<?php echo 'data:image/png;base64,' . base64_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/movie_project/img/lsus-logo.png')); ?>"
