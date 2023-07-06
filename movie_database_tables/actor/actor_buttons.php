@@ -20,8 +20,8 @@
 
 
 <!--EDIT ACTOR ############################################################ -->
-<button class="button btn-warning btn-primary-spacing height" type="submit" id="edit_actor">
-    <span style="font-size: 15px; font-weight: bold">EDIT ACTOR</span>
+<button class="button btn-warning btn-primary-spacing height" type="submit" id="update_actor">
+    <span style="font-size: 15px; font-weight: bold">UPDATE ACTOR</span>
 </button>
 
 <!--DELETE actor ############################################################ -->
