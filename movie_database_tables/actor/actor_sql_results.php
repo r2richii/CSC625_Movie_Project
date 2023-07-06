@@ -18,6 +18,8 @@
 
 
     <?php
+    // THIS PAGE ONLY FOR DISPLAYING SELECT STATEMENTS
+    
     session_start();
     require($_SERVER['DOCUMENT_ROOT'].'/movie_project/mssql_connection.php');
 

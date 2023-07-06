@@ -23,22 +23,27 @@
 </head>
 <body style="background-color:  #461D7C" ;>
 
-    <div class="container-fluid" id="actor_page">
-        <!-- SEARCH BAR ROW ################################################################## -->
-        <div class="row between-xs" id="index_header">
+    <form id="actor_form">
 
-            <div class="col-sm-11 m-4 d-grid gap-4 rcorner-sm border-success lt-purple">
-                <?php require($_SERVER['DOCUMENT_ROOT'] . '/movie_project/movie_database_tables/actor/actor_header.php'); ?>
+        <div class="container-fluid" id="actor_page">
+            <!-- SEARCH BAR ROW ################################################################## -->
+            <div class="row between-xs" id="index_header">
+
+                <div class="col-sm-11 m-4 d-grid gap-4 rcorner-sm border-success lt-purple">
+                    <?php require($_SERVER['DOCUMENT_ROOT'] . '/movie_project/movie_database_tables/actor/actor_header.php'); ?>
+                </div>
+
+                <div class="col-sm-3 d-grid gap-3 p-4 height">
+                    <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_buttons.php'); ?>
+                </div>
+
+                <div class="col-sm-7 rcorner" id="index_div">
+                    <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_input_boxes.php'); ?>
+                </div>
+
             </div>
-
-            <div class="col-sm-3 d-grid gap-3 p-4 height">
-                <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_buttons.php'); ?>
-            </div>
-
-            <div class="col-sm-7 rcorner" id="index_div">
-                <?php require($_SERVER['DOCUMENT_ROOT'] . '//movie_project/movie_database_tables/actor/actor_input_boxes.php'); ?>
-            </div>
-
-        </div>
+    </form>
+    
+</body>
 <img src="../../img/lsus-logo.png" style="position:absolute;bottom:-125px;left:100px;z-index:1" height="120" />
 <script><?php require($_SERVER['DOCUMENT_ROOT'] . '/movie_project/js/ajax.js'); ?></script>
